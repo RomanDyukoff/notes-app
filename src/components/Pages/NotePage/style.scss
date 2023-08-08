@@ -1,0 +1,8 @@
+.note-page {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    &__button {
+        align-self: flex-start;
+    }
+}

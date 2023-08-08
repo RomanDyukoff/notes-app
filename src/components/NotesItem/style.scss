@@ -1,0 +1,25 @@
+.notes-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 1px solid #ced4da;
+  text-overflow: ellipsis;
+  cursor: pointer;
+  &__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+  }
+  &__content > span:first-child {
+    font-size: 18px;
+    font-weight: 700;
+    font-style: italic;
+  }
+  &__content > span:last-child {
+    font-size: 12px;
+    line-height: 20px;
+    opacity: 0.6;
+  }
+}

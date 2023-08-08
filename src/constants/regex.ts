@@ -1,0 +1,1 @@
+export const HASHTAG_REGEX: RegExp = /#[a-zA-Zа-яА-Я0-9_-]+/g;
