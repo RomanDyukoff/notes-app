@@ -2,6 +2,7 @@ import { useRecoilValue } from "recoil"
 import { noteListState } from "../../../store/store"
 
 import "./style.scss"
+import { Text } from "@mantine/core"
 
 type FooterPropType = {
     className?: string
@@ -12,9 +13,11 @@ export const Footer: React.FC<FooterPropType> = ({ className }) => {
 
     return (
         <footer className={`footer ${className}`}>
-            <span>{
-                notes.length ? `you have ${notes.length} notes` : "there are no notes here"
-            }</span>
+            <Text color="#fff">
+                {
+                    notes.length ? `you have ${notes.length} notes` : "there are no notes here"
+                }
+            </Text>
         </footer>
     )
 }

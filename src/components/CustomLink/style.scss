@@ -1,0 +1,18 @@
+.custom-link {
+  position: relative;
+  color: #a0a6ab;
+  &::after {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    content: "";
+    width: 20%;
+    height: 1px;
+    background-color: #ced4da;
+    transition: 0.3s;
+  }
+  &:hover::after {
+    transition: 0.3s;
+    width: 100%;
+  }
+}

@@ -1,4 +1,4 @@
-import { Textarea } from "@mantine/core";
+import { Breadcrumbs, Textarea } from "@mantine/core";
 import { ChangeEvent, useState } from "react";
 import { Button } from '@mantine/core';
 import { useNavigate } from "react-router";
@@ -8,9 +8,16 @@ import { formatDate } from "../../../functions/formatDate";
 import { HASHTAG_REGEX } from "../../../constants/regex";
 import { extractHashtags } from "../../../functions/extractHashtags";
 import { HashtagList } from "../../HashtagList/HashtagList";
+import { CustomLink } from "../../CustomLink/CustomLink";
 
 import "./style.scss";
 
+const crumbs = [
+  { title: 'notes', href: '/' },
+  { title: 'edit', href: '/note' },
+].map((item, index) => (
+  <CustomLink to={item.href} key={index} name={item.title} />
+));
 
 export const CreateNote: React.FC = () => {
   const [text, setText] = useState<string>("");
@@ -38,6 +45,7 @@ export const CreateNote: React.FC = () => {
 
   return (
     <section className="create-note">
+      <Breadcrumbs>{crumbs}</Breadcrumbs>
       <Button color="yellow" onClick={saveNote} className="create-note__button">Add</Button>
       <Textarea
         autoFocus

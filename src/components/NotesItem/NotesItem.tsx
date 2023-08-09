@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { Button } from "@mantine/core";
+import { Box, Button, Flex, Text } from "@mantine/core";
 import { Paths } from "../../constants/path";
 import { useRecoilState } from "recoil";
 import { noteListState } from "../../store/store";
@@ -33,11 +33,27 @@ export const NotesItem: React.FC<INotesItem> = ({ id, text, date, className }) =
 
     return (
         <li className={`notes-item ${className}`} id={id} onClick={handleTransition}>
-            <div className="notes-item__content">
-                <span>{shortString(text, 4)}</span>
-                <span>{date}</span>
-            </div>
-            <Button color="red" size="xs" onClick={(e) => removeNote(e)}>Delete</Button>
+            <Box sx={(theme) => ({
+                width: "100%",
+                textAlign: 'center',
+                padding: theme.spacing.sm,
+                borderRadius: 8,
+                cursor: 'pointer',
+                border: "0.0625rem solid #ced4da",
+
+                '&:hover': {
+                    backgroundColor:
+                        theme.colorScheme === 'dark' ? theme.colors.dark[1] : theme.colors.gray[0],
+                },
+            })}>
+                <Flex align="center" justify="space-between">
+                    <Flex align="flex-start" justify="center" direction="column">
+                        <Text fw={500}>{shortString(text, 4)}</Text>
+                        <Text c="dimmed">{date}</Text>
+                    </Flex>
+                    <Button color="red" size="xs" onClick={(e) => removeNote(e)}>Delete</Button>
+                </Flex>
+            </Box>
         </li>
     )
 }

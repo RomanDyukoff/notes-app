@@ -1,4 +1,4 @@
-import { Button, Skeleton } from '@mantine/core';
+import { Breadcrumbs, Button, Skeleton } from '@mantine/core';
 import { useRecoilState } from "recoil";
 import { noteListState } from "../../../store/store";
 import { useNavigate, useParams } from "react-router";
@@ -11,6 +11,15 @@ import { Paths } from '../../../constants/path';
 import { useLocalStorageState } from '../../../hooks/useLocalStorageState';
 
 import "./style.scss";
+
+import { CustomLink } from '../../CustomLink/CustomLink';
+
+const crumbs = [
+  { title: 'notes', href: '/' },
+  { title: 'create', href: '/create' },
+].map((item, index) => (
+  <CustomLink to={item.href} key={index} name={item.title} />
+));
 
 export const NotePage = () => {
   const { id } = useParams();
@@ -54,6 +63,7 @@ export const NotePage = () => {
 
   return (
     <section className="note-page">
+      <Breadcrumbs>{crumbs}</Breadcrumbs>
       <Button color="yellow" onClick={handleNotes} className='note-page__button'>Save</Button>
       {note ? <MyEditor text={note.text} setText={setText} /> : <Skeleton radius={10} height={300} />}
     </section>
