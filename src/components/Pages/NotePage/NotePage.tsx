@@ -16,7 +16,7 @@ import { CustomLink } from '../../CustomLink/CustomLink';
 
 const crumbs = [
   { title: 'notes', href: '/' },
-  { title: 'create', href: '/create' },
+  { title: 'edit', href: '/note' },
 ].map((item, index) => (
   <CustomLink to={item.href} key={index} name={item.title} />
 ));

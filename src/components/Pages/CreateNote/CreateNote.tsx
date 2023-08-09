@@ -14,7 +14,7 @@ import "./style.scss";
 
 const crumbs = [
   { title: 'notes', href: '/' },
-  { title: 'edit', href: '/note' },
+  { title: 'create', href: '/create' },
 ].map((item, index) => (
   <CustomLink to={item.href} key={index} name={item.title} />
 ));
